@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:8889/proyectosHibernate</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        <property name="show_sql">true</property>
+        <property name="connection.pool_size">1</property> <!-- Dialecto SQL -->
+        <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property> <!-- Muestra en la consola todas las consultas SQL ejecutadas -->
+        <property name="show_sql">false</property>
+
+        <!-- Elimina y vuelve a crear el esquema de la base de datos al iniciar si siempre esta sin comentar cada vez que lo ejecuto crea las tablas para ello poner create-drop, si no quiero que vuelva a crear las tablas pondré update -->
+        <property name="hbm2ddl.auto">create-drop</property>
+
+        <!-- Mapea las siguientes clases anotadas si trabajásemos con mapeo XML en lugar de class pondríamos resource -->
+        <mapping class="aed.hibernate.models.Departamento" />
+        <mapping class="aed.hibernate.models.Proyecto" />
+        <mapping class="aed.hibernate.models.Trabajador" />
+        <mapping class="aed.hibernate.models.TrabajadorNomina" />
+        <mapping class="aed.hibernate.models.TrabajadorProyecto" />
+
+    </session-factory>
+</hibernate-configuration>
